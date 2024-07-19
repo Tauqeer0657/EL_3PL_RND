@@ -1,0 +1,72 @@
+/* createVendors css */
+
+.createVendor-main {
+  background-color: #dddddd;
+  width: 100%;
+  margin-top: 10px;
+  /* background-color: red; */
+}
+
+.createVendor-header {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: gray;
+  padding: 10px;
+  /* background-color: aqua; */
+}
+
+.createVendor-formSection {
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  margin-top: 10px;
+  display: flex;
+  /* background-color: rgb(39, 177, 158); */
+}
+
+.createVendor-formSection-left {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: bisque; */
+}
+
+.createVendor-formSection-leftHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.createVendor-formSection-right {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: blueviolet; */
+}
+
+.createVendor-formSection-rightHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+
+
+/* modal  */
+
+.createVendor-modal-Header{
+width: 100%;
+display: flex;
+align-items: center;
+padding-left: 10px;
+}

@@ -1,0 +1,101 @@
+.PoStatus-bg {
+    background-image: url("../../assets/logo/emiratesbgimg2.JPEG");
+    background-position: center;
+    background-size: cover;
+  
+    background-repeat: no-repeat;
+
+  }
+
+
+
+
+
+
+
+
+/* 
+
+
+
+  .PoStatus-bg {
+    background-color: #f5f5f5;
+  }
+  
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+  }
+  
+  .timeline li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-right: 20px; 
+  }
+  
+  .icon {
+    font-size: 24px;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    background-color: lightgrey;
+  }
+  
+  .timeline li:nth-child(1) .icon {
+    background-color: lightpink;
+  }
+  .timeline li:nth-child(2) .icon {
+    background-color: #ff8800;
+  }
+  .timeline li:nth-child(3) .icon {
+    background-color: #a601d8;
+  }
+  .timeline li:nth-child(4) .icon {
+    background-color: #ffd900;
+  }
+  .timeline li:nth-child(5) .icon {
+    background-color: #0077ff;
+  }
+  .timeline li:nth-child(6) .icon {
+    background-color: #30cf00;
+  }
+  
+  .line {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: grey;
+    z-index: 0;
+  }
+  
+  .content {
+    margin-left: 20px; 
+  }
+  
+  .title {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .date {
+    margin: 0;
+    font-size: 12px;
+    color: grey;
+  }
+  
+ */
+
+
+  

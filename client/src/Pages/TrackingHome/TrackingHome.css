@@ -1,0 +1,242 @@
+.TrackingHomepage {
+  background-image: url("../../assets/logo/emiratesbgimg2.JPEG");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.TrackingHome-upperpage {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upperpage-header {
+  width: 100%;
+  height: 10%;
+}
+
+.upperpage-header-logo {
+  width: 4%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.upperpage-main {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upperpage-main-card {
+  width: 35%;
+  height: 30%;
+  margin-top: 80px;
+}
+
+.main-card-upper {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-card-upper-gif {
+  width: 19%;
+}
+
+.main-card-lowerform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 68%;
+  border: 1px solid #dddddd;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.main-card-lowerform .form-element {
+  margin: 1rem;
+  width: 50%;
+}
+
+.TrackingHome-lowerpage {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.lowerpage-rightside-ul {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  color: grey;
+  font-size: 12px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .upperpage-header-logo {
+    width: 7%;
+  }
+
+  .upperpage-main-card {
+    width: 100%;
+    height: 45%;
+    margin-top: 30px;
+  }
+
+  .main-card-upper h4 {
+    font-size: "10px";
+  }
+
+  .main-card-upper-gif {
+    width: 35%;
+  }
+
+  .main-card-lowerform .form-element {
+    width: 100%;
+  }
+
+  .lowerpage-rightside-ul li{
+    font-size: 9px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 600px) {
+  .upperpage-header-logo {
+    width: 10%;
+  }
+
+  .upperpage-main-card {
+    width: 80%;
+    height: 40%;
+    margin-top: 40px;
+  }
+
+  .main-card-upper h4 {
+    font-size: 1rem;
+  }
+
+  .main-card-upper-gif {
+    width: 30%;
+  }
+
+  .main-card-lowerform .form-element {
+    width: 100%;
+  }
+
+  .lowerpage-rightside-ul {
+    width: 80%;
+    font-size: 14px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (max-width: 768px) {
+  .upperpage-header-logo {
+    width: 8%;
+  }
+
+  .upperpage-main-card {
+    width: 60%;
+    height: 35%;
+    margin-top: 60px;
+  }
+
+  .main-card-upper h4 {
+    font-size: 1.2rem;
+  }
+
+  .main-card-upper-gif {
+    width: 25%;
+  }
+
+  .main-card-lowerform .form-element {
+    width: 80%;
+  }
+
+  .lowerpage-rightside-ul {
+    width: 70%;
+    font-size: 14px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .upperpage-header-logo {
+    width: 6%;
+  }
+
+  .upperpage-main-card {
+    width: 50%;
+    height: 30%;
+    margin-top: 70px;
+  }
+
+  .main-card-upper h4 {
+    font-size: 1.3rem;
+  }
+
+  .main-card-upper-gif {
+    width: 22%;
+  }
+
+  .main-card-lowerform .form-element {
+    width: 60%;
+  }
+
+  .lowerpage-rightside-ul {
+    width: 60%;
+    font-size: 14px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .upperpage-header-logo {
+    width: 5%;
+  }
+
+  .upperpage-main-card {
+    width: 35%;
+    height: 30%;
+    margin-top: 80px;
+  }
+
+  .main-card-upper h4 {
+    font-size: 1.5rem;
+  }
+
+  .main-card-upper-gif {
+    width: 19%;
+  }
+
+  .main-card-lowerform .form-element {
+    width: 50%;
+  }
+
+  .lowerpage-rightside-ul {
+    width: 40%;
+    font-size: 12px;
+  }
+}
