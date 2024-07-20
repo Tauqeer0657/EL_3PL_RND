@@ -28,3 +28,26 @@ exports.addPage = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// getting all pages
+
+exports.getPages = async (req, res) => {
+  try {
+    const request = getSqlRequest();
+    const query = `
+      SELECT *
+      FROM tb_EL3PL_PageTable;
+    `;
+    const result = await request.query(query);
+    if (result.recordset.length > 0) {
+      res.status(200).json(result.recordset);
+    } else {
+      res.status(404).send({
+        message: "No data found in the page table.",
+      });
+    }
+  } catch (err) {
+    console.error("SQL error:", err);
+    res.status(500).json({ error: err.message });
+  }
+};

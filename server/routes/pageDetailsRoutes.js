@@ -5,13 +5,7 @@ const pageDetailsController = require("../controllers/pageDetailsController");
 // adding a page details 
 router.post("/addPage",pageDetailsController.addPage);
 
-// // getting all driver details
-// router.get("/getDrivers",pageDetailsController.getDrivers);
-
-// // updating driver details based on driverID
-// router.patch("/updateDriver/:driverID",pageDetailsController.updateDriver);
-
-// // deleting driver details based on driverID
-// router.delete("/deleteDriver/:driverID",pageDetailsController.deleteDriver);
+// getting all pages
+router.get("/getPages",pageDetailsController.getPages);
 
 module.exports = router;
