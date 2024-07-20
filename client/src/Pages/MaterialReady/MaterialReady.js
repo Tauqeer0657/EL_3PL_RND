@@ -8,7 +8,7 @@ import MaterialCard from "./MaterialCard/MaterailCard";
 import CreateMaterial from "./CreateMaterial/CreateMaterial";
 import MaterialTable from "./MaterialTable/MaterialTable";
 
-export const MaterailReady = () => {
+export const MaterialReady = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <SideBar />

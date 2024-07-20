@@ -19,12 +19,12 @@ export const menuItems = [
   {
     text: "DASHBOARD",
     icon: <LeaderboardIcon />,
-    path: "/dashboard",
+    path: "/Dashboard",
   },
   {
     text: "MATERIAL READY",
     icon: <AppRegistrationIcon />,
-    path: "/MaterailReady",
+    path: "/MaterialReady",
   },
   
   {
@@ -35,7 +35,7 @@ export const menuItems = [
   {
     text: "PURCHASE DOC",
     icon: <ArticleIcon />,
-    path: "/purchdoc",
+    path: "/Purchdoc",
   },
   {
     text: "TRACKING HOME",
@@ -43,15 +43,10 @@ export const menuItems = [
     path: "/TrackingHome",
   },
 
-  // {
-  //   text: "PO STATUS",
-  //   icon: <LocationSearchingIcon/>,
-  //   path: "/PoStatus",
-  // },
   {
-    text: "PO STATUS 1",
+    text: "PO STATUS ",
     icon: <ShowChartIcon/>,
-    path: "/PoStatus1",
+    path: "/PoStatus",
   },
  
   {

@@ -16,9 +16,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Header2 from "../../component/Header2";
+import { _post_WithoutToken } from "../../commonUtilApi/ElApi";
 
 const customTheme = createTheme({
   palette: {
@@ -34,8 +34,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    USER_CD: "",
-    PASS_CD: "",
+    registrationID: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
@@ -48,53 +48,39 @@ export default function Login() {
 
     try {
       setLoading(true);
-      const response = await axios.post(
-        "api/login",
-        {
-          USER_CD: formData.USER_CD,
-          PASS_CD: formData.PASS_CD,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
+      const response = await _post_WithoutToken("/api/userRegistration/login", {
+        registrationID: formData.registrationID,
+        password: formData.password,
+      });
+
+      // Debugging: Log the response to inspect its structure
+      console.log("API Response:", response);
 
       if (response.status === 200) {
-        const token = response.headers["x-gl-auth-token"];
-        const userDetails = response.data[0];
-        console.log(userDetails)
-        if (token && userDetails) {
+        const token = response.headers["token"];
+        // const userDetails = response.data[0];
+        console.log("Token:", token);
+        // console.log("User Details:", userDetails);
+        
+        if (token) {
           sessionStorage.setItem("authToken", token);
-          sessionStorage.setItem("userDetails", JSON.stringify(userDetails)); 
+          sessionStorage.setItem("registrationID", formData.registrationID);
+          // sessionStorage.setItem("userDetails", JSON.stringify(userDetails));
+
           navigate("/dashboard");
         } else {
           setError("Failed to retrieve token");
         }
       } else {
-        setError("Invalid Employee ID or Password");
+        setError("Invalid registration ID or Password");
       }
     } catch (error) {
       setError("An error occurred while logging in");
-      console.error(error);
+      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
   };
-
-
-
- 
-
-
-
-
-
-
-
-
 
   return (
     <ThemeProvider theme={customTheme}>
@@ -133,11 +119,10 @@ export default function Login() {
                     margin="normal"
                     required
                     fullWidth
-                    id="USER_CD"
-                    label="Email"
-                    name="USER_CD"
-                    autoComplete="email"
-                    value={formData.USER_CD}
+                    id="registrationID"
+                    label="registrationID"
+                    name="registrationID"
+                    value={formData.registrationID}
                     onChange={handleInputChange}
                     autoFocus
                   />
@@ -145,12 +130,12 @@ export default function Login() {
                     margin="normal"
                     required
                     fullWidth
-                    name="PASS_CD"
-                    label="Password"
+                    name="password"
+                    label="password"
                     type="password"
-                    id="PASS_CD"
+                    id="password"
                     autoComplete="current-password"
-                    value={formData.PASS_CD}
+                    value={formData.password}
                     onChange={handleInputChange}
                   />
                   <FormControlLabel
