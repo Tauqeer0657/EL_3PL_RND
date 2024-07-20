@@ -187,12 +187,18 @@ exports.loginUser = async (req, res) => {
     }
 
     const storedPassword = result.recordset[0].password;
+    console.log(result.recordset[0].registrationID);
 
     if(req.body.password === storedPassword){
       const token = Jwt.sign(
         { id: result.recordset[0].registrationID },"hi");
         console.log(token);
-        res.status(200).header("Token", token).json({ message: "Login successful" });
+        res.status(200)
+        .header("Token", token)
+        .json({
+        message: "Login successful",
+        registrationID: result.recordset[0].registrationID
+   });
     }
     else {
       // Passwords do not match
