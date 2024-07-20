@@ -14,6 +14,7 @@ const driverDetailsRoutes = require("./routes/driverDetailsRoutes");
 const poStatusRoutes = require("./routes/poStatusRoutes");
 const poItemDetailsRoutes = require("./routes/poItemDetailsRoutes");
 const pageDetailsRoutes = require("./routes/pageDetailsRoutes");
+const accessManagementRoutes = require("./routes/accessManagementRoutes");
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use("/api/driverDetails",driverDetailsRoutes);
 app.use("/api/poStatus",poStatusRoutes);
 app.use("/api/poItemDetails",poItemDetailsRoutes);
 app.use("/api/pageDetails",pageDetailsRoutes);
+app.use("/api/access",accessManagementRoutes);
 
 // Connect to the database and start the server only if successful
 connectToDatabase()
