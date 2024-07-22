@@ -1,192 +1,7 @@
-// // SideBar.js
-// import React, { useState } from "react";
-// import { styled, useTheme } from "@mui/material/styles";
-// import Box from "@mui/material/Box";
-// import MuiDrawer from "@mui/material/Drawer";
-
-// import List from "@mui/material/List";
-// import CssBaseline from "@mui/material/CssBaseline";
-// import Divider from "@mui/material/Divider";
-// import IconButton from "@mui/material/IconButton";
-// import MenuIcon from "@mui/icons-material/Menu";
-
-// import ListItem from "@mui/material/ListItem";
-// import ListItemButton from "@mui/material/ListItemButton";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import ListItemText from "@mui/material/ListItemText";
-// import Header from "./Header";
-// import { useNavigate, useLocation } from "react-router-dom";
-// import { menuItems } from "./menuItems"; // Import the menuItems
-// import logo from "../assets/logo/OWM_Final.png";
-
-// const drawerWidth = 200;
-
-// const openedMixin = (theme) => ({
-//   width: drawerWidth,
-//   transition: theme.transitions.create("width", {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.enteringScreen,
-//   }),
-//   overflowX: "hidden",
-//   background: "white",
-//   color: "white",
-//   fontFamily: "sans-serif",
-// });
-
-// const closedMixin = (theme) => ({
-//   transition: theme.transitions.create("width", {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   overflowX: "hidden",
-//   background: "white",
-//   color: "white",
-//   width: `calc(${theme.spacing(7)} + 1px)`,
-//   [theme.breakpoints.up("sm")]: {
-//     width: `calc(${theme.spacing(8)} + 1px)`,
-//   },
-// });
-
-// const DrawerHeader = styled("div")(({ theme }) => ({
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "flex-end",
-//   padding: theme.spacing(0, 1),
-//   ...theme.mixins.toolbar,
-
-//   backgroundImage: `url(${logo})`, // Set the logo as the background image
-//   backgroundSize: "66px auto",
-//   backgroundRepeat: "no-repeat",
-//   backgroundPosition: "center",
-// }));
-
-// const Drawer = styled(MuiDrawer, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })(({ theme, open }) => ({
-//   width: drawerWidth,
-//   flexShrink: 0,
-//   whiteSpace: "nowrap",
-//   boxSizing: "border-box",
-//   ...(open && {
-//     ...openedMixin(theme),
-//     "& .MuiDrawer-paper": openedMixin(theme),
-//   }),
-//   ...(!open && {
-//     ...closedMixin(theme),
-//     "& .MuiDrawer-paper": closedMixin(theme),
-//   }),
-// }));
-
-// export default function SideBar() {
-//   const theme = useTheme();
-//   const [open, setOpen] = useState(true);
-//   const navigate = useNavigate();
-//   const location = useLocation(); // Add this line to get the current location
-
-//   const handleDrawerOpen = () => {
-//     setOpen(true);
-//   };
-
-//   const handleDrawerClose = () => {
-//     setOpen(false);
-//   };
-
-//   return (
-//     <Box sx={{ display: "flex" }}>
-//       <CssBaseline />
-//       <Header open={open} handleDrawerOpen={handleDrawerOpen} />
-//       <Drawer variant="permanent" open={open}>
-//         <DrawerHeader>
-//           <IconButton onClick={handleDrawerClose} style={{ color: "#045e84" }}>
-//             {theme.direction === "rtl" ? <MenuIcon /> : <MenuIcon />}
-//           </IconButton>
-//         </DrawerHeader>
-//         <Divider />
-//         <List>
-//           {menuItems.map((item, index) => (
-//             <ListItem
-//               key={index}
-//               disablePadding
-//               sx={{ display: "block" }}
-//               onClick={() => navigate(item.path)}
-//             >
-//               <ListItemButton
-//                 sx={{
-//                   minHeight: 48,
-//                   color: "#045e84",
-
-//                   justifyContent: open ? "initial" : "center",
-//                   px: 2.5,
-//                   mt: 1,
-//                   borderBottom: "1px solid #ccc",
-//                   // Add styles for the active menu item based on the route
-//                   ...(location.pathname === item.path && {
-//                     background: " #045e84",
-//                     color: "white",
-//                   }),
-//                   ":hover": {
-//                     background: "#045e8477", // Add the desired hover background color
-//                     color: "white", // Add the desired hover text color
-//                   },
-//                 }}
-//               >
-//                 <ListItemIcon
-//                   sx={{
-//                     minWidth: 0,
-//                     mr: open ? 3 : "auto",
-//                     justifyContent: "center",
-
-//                     color: "#045e84",
-//                     ...(location.pathname === item.path && {
-//                       background: " #045e84",
-//                       color: "white",
-//                     }),
-//                     ":hover": {
-//                       background: "#045e8477", // Add the desired hover background color
-//                       color: "white", // Add the desired hover text color
-//                     },
-//                   }}
-//                 >
-//                   {item.icon}
-//                 </ListItemIcon>
-//                 <ListItemText
-//                   primary={
-//                     <div
-//                       style={{ fontSize: "1rem", fontFamily: "Georgia, serif" }}
-//                     >
-//                       {item.text}
-//                     </div>
-//                   }
-//                   sx={{
-//                     opacity: open ? 1 : 0,
-//                   }}
-//                 />
-//               </ListItemButton>
-//             </ListItem>
-//           ))}
-//         </List>
-//       </Drawer>
-//     </Box>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
@@ -194,15 +9,15 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Header from "./Header";
 import { useNavigate, useLocation } from "react-router-dom";
-import { menuItems } from "./menuItems"; // Import the menuItems
-import logo from "../assets/logo/emirateslogo.jpg"
+import axios from "axios";
+
+import logo from "../assets/logo/emirateslogo.jpg";
 
 const drawerWidth = 230;
 
@@ -238,11 +53,10 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
   padding: theme.spacing(0),
   ...theme.mixins.toolbar,
-  backgroundImage: `url(${logo})`, 
+  backgroundImage: `url(${logo})`,
   backgroundSize: "140px auto",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
- 
 }));
 
 const Drawer = styled(MuiDrawer, {
@@ -265,9 +79,11 @@ const Drawer = styled(MuiDrawer, {
 export default function SideBar() {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [submenuOpen, setSubmenuOpen] = useState({}); // State to track open status of submenus
+  const [submenuOpen, setSubmenuOpen] = useState({});
+  const [menuItems, setMenuItems] = useState([]);
   const navigate = useNavigate();
-  const location = useLocation(); // Add this line to get the current location
+  const location = useLocation();
+  const [registrationID, setRegistrationID] = useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -282,11 +98,31 @@ export default function SideBar() {
   };
 
   const handleToggleSubMenu = (index) => {
-    setSubmenuOpen(prevState => ({
+    setSubmenuOpen((prevState) => ({
       ...prevState,
-      [index]: !prevState[index]
+      [index]: !prevState[index],
     }));
   };
+
+  useEffect(() => {
+    const savedRegistrationID = sessionStorage.getItem("registrationID");
+    if (savedRegistrationID) {
+      setRegistrationID(savedRegistrationID);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (registrationID) {
+      axios
+        .get(`api/access/getAccess/${registrationID}`)
+        .then((response) => {
+          setMenuItems(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }
+  }, [registrationID]);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -300,12 +136,12 @@ export default function SideBar() {
         </DrawerHeader>
         <Divider />
         <List>
-          {menuItems.map((item, index) => (
+          {menuItems.filter(item => item.page_YN === "Y").map((item, index) => (
             <div key={index}>
               <ListItem
                 disablePadding
                 sx={{ display: "block" }}
-                onClick={() => navigate(item.path)}
+                onClick={() => navigate(item.pageLink)}
               >
                 <ListItemButton
                   sx={{
@@ -315,14 +151,13 @@ export default function SideBar() {
                     px: 1.5,
                     mt: 1,
                     borderBottom: "1px solid #ccc",
-                    // Add styles for the active menu item based on the route
-                    ...(location.pathname === item.path && {
+                    ...(location.pathname === item.pageLink && {
                       background: "#222b48",
                       color: "white",
                     }),
                     ":hover": {
-                      background: "#045e8477", // Add the desired hover background color
-                      color: "white", // Add the desired hover text color
+                      background: "#045e8477",
+                      color: "white",
                     },
                   }}
                 >
@@ -332,17 +167,17 @@ export default function SideBar() {
                       mr: open ? 1 : "auto",
                       justifyContent: "center",
                       color: "#222b48",
-                      ...(location.pathname === item.path && {
+                      ...(location.pathname === item.pageLink && {
                         background: "#222b48",
                         color: "white",
                       }),
                       ":hover": {
-                        background: "#045e8477", // Add the desired hover background color
-                        color: "white", // Add the desired hover text color
+                        background: "#045e8477",
+                        color: "white",
                       },
                     }}
                   >
-                    {item.icon}
+                    {/* Optionally, you can add icons here */}
                   </ListItemIcon>
                   <ListItemText
                     primary={
@@ -350,10 +185,9 @@ export default function SideBar() {
                         style={{
                           fontSize: "0.9rem",
                           fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                          
                         }}
                       >
-                        {item.text}
+                        {item.pageName}
                       </div>
                     }
                     sx={{
@@ -364,7 +198,7 @@ export default function SideBar() {
                     open ? 
                     (submenuOpen[index] ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />) 
                     : 
-                    (location.pathname === item.path ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />)
+                    (location.pathname === item.pageLink ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />)
                   )}
                 </ListItemButton>
               </ListItem>
@@ -375,7 +209,7 @@ export default function SideBar() {
                       key={subIndex}
                       disablePadding
                       sx={{ display: "block", pl: 2 }}
-                      onClick={() => handleSubMenuClick(subItem.path)}
+                      onClick={() => handleSubMenuClick(subItem.pageLink)}
                     >
                       <ListItemButton
                         sx={{
@@ -385,14 +219,13 @@ export default function SideBar() {
                           px: 2,
                           mt: 1,
                           borderBottom: "1px solid #ccc",
-                          // Add styles for the active menu item based on the route
-                          ...(location.pathname === subItem.path && {
+                          ...(location.pathname === subItem.pageLink && {
                             background: "#222b48",
                             color: "white",
                           }),
                           ":hover": {
-                            background: "#045e8477", // Add the desired hover background color
-                            color: "white", // Add the desired hover text color
+                            background: "#045e8477",
+                            color: "white",
                           },
                         }}
                       >
@@ -404,7 +237,7 @@ export default function SideBar() {
                                 fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                               }}
                             >
-                              {subItem.text}
+                              {subItem.pageName}
                             </div>
                           }
                         />
@@ -420,4 +253,3 @@ export default function SideBar() {
     </Box>
   );
 }
-
