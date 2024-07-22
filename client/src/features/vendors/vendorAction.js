@@ -1,5 +1,6 @@
 import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
 import axios from "axios";
+import axiosInstance from "../axiosInstance";
 
 
 // fetching vendor data
@@ -21,7 +22,7 @@ export const createVendor = createAsyncThunk(
   "vendor/createVendor",
   async (vendorData) => {
     try {
-      const response = await axios.post('/api/vendorMaster/addVendor', vendorData);
+      const response = await axiosInstance.post('/api/vendorMaster/addVendor', vendorData);
       const data = response.data.reverse();
       return data;
     } catch (error) {
@@ -29,7 +30,6 @@ export const createVendor = createAsyncThunk(
     }
   }
 );
-
 
 
 // deleting vendor data

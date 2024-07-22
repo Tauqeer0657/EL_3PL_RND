@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const vendorMasterController = require("../controllers/vendorMasterController");
+const AuthenticateUser = require("../middleware/auth")
 
 // adding a vendor
-router.post("/addVendor", vendorMasterController.addvendorMaster);
+router.post("/addVendor", AuthenticateUser, vendorMasterController.addvendorMaster);
 
 // getting all vendor details
 router.get("/getVendor", vendorMasterController.getVendorMaster);

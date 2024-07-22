@@ -63,7 +63,7 @@ export default function Login() {
         // console.log("User Details:", userDetails);
         
         if (token) {
-          sessionStorage.setItem("authToken", token);
+          sessionStorage.setItem("token", token);
           sessionStorage.setItem("registrationID", formData.registrationID);
           // sessionStorage.setItem("userDetails", JSON.stringify(userDetails));
 
