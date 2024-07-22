@@ -42,7 +42,8 @@ exports.getAccess = async (req,res) => {
             SELECT 
             a.registrationID, 
             a.pageCode, 
-            p.pageName, 
+            p.pageName,
+            p.pageLink, 
             a.page_YN, 
             a.page_Inq, 
             a.page_Save, 
