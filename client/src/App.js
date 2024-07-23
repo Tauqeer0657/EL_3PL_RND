@@ -1,12 +1,9 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-
 import Login from './auth/Login/Login';
 import { Dashboard } from './Pages/Dashboard/Dashboard';
-
 import { ViewMaterialReady } from './Pages/ViewMaterialReady/ViewPO';
 import TrackingHome from './Pages/TrackingHome/TrackingHome';
-
 import Plants from './Pages/Plants/Plants';
 import Vendors from './Pages/Vendors/Vendors';
 import NewUser from './Pages/NewUser/NewUser';
@@ -27,8 +24,6 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard/>}></Route>
         <Route path="/MaterialReady" element={<MaterialReady/>}></Route>
         <Route path="/Purchdoc" element={<PurchDoc/>}></Route>
-
-      
         <Route path="/ViewMaterialReady" element={<ViewMaterialReady/>}></Route>
         <Route path="/TrackingHome" element={<TrackingHome/>}></Route>
         <Route path="/PoStatus" element={<PoStatus/>}></Route>
@@ -47,73 +42,3 @@ function App() {
 export default App;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import './App.css';
-// import { Routes, Route } from "react-router-dom";
-
-// import Login from './auth/Login/Login';
-// import DN from './Pages/Upload/ViewUpload/DN'
-// import Upload from './Pages/Upload/Upload';
-// import { Dashboard } from './Pages/Dashboard/Dashboard';
-// import Header2 from './component/Header2';
-
-// function App() {
-//   return (
-//     <>
-//       <Routes>
-//         <Route path="/" element={<Login />} />
-//         <Route path="/dashboard" element={<Dashboard/>}></Route>
-
-//         {/* Nested Routes */}
-//       <Route
-//         path="/data"
-//         element={
-//           <>
-//             <Header2 />
-//             <Routes>
-//               {/* Upload Route */}
-//               <Route path="/upload" element={<Upload />} />
-//               {/* DN Route */}
-//               <Route path="/dn" element={<DN />} />
-//             </Routes>
-//           </>
-//         }
-//       />
-        
-       
-//       </Routes>
-
-//     </>
-//   );
-// }
-
-// export default App;
