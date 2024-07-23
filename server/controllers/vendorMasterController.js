@@ -6,6 +6,7 @@ const getSqlRequest = require("../utils/dbUtils");
 exports.addvendorMaster = async (req, res) => {
   try {
     const request = getSqlRequest();
+    console.log(req.body.vendorCode);
 
     // Input parameters
     request.input("vendorCode", sql.NVarChar, req.body.vendorCode);
