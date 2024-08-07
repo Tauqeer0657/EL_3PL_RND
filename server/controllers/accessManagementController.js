@@ -63,11 +63,42 @@ exports.getAccess = async (req,res) => {
         res.status(200).json(result.recordset);
       } else {
         res.status(404).send({
-          message: "No data found in the vendor table.",
+          message: "No access found of given user.",
         });
       }
     } catch (err) {
       console.error("SQL error:", err);
       res.status(500).json({ error: err.message });
     }
+}
+
+// getting template of access page 
+
+exports.getTemplate = async (req,res) => {
+  try {
+    const request = getSqlRequest();
+    const query = `
+          SELECT 
+          pageCode, 
+          pageName,
+          '' AS page_YN, 
+          '' AS page_Inq, 
+          '' AS page_Save, 
+          '' AS page_Update, 
+          '' AS page_Delete
+      FROM  
+          tb_EL3PL_PageTable;
+    `;
+    const result = await request.query(query);
+    if (result.recordset.length > 0) {
+      res.status(200).json(result.recordset);
+    } else {
+      res.status(404).send({
+        message: "No data found in access table.",
+      });
+    }
+  } catch (err) {
+    console.error("SQL error:", err);
+    res.status(500).json({ error: err.message });
+  }
 }

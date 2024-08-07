@@ -7,7 +7,7 @@ const userRegistrationController = require("../controllers/userRegistrationContr
 router.post("/addUser",userRegistrationController.addUser);
 
 // getting all user
-router.get("/getUsers", authenticateUser , userRegistrationController.getUsers);
+router.get("/getUsers",userRegistrationController.getUsers);
 
 // updating a user
 router.patch("/updateUser/:registrationID",userRegistrationController.updateUser);
