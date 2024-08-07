@@ -13,6 +13,7 @@ import { MaterialReady } from './Pages/MaterialReady/MaterialReady';
 import UserManagement from './Pages/UserManagement/UserManagement';
 import PurchDoc from './Pages/MaterialReady/PurchDoc';
 import PoStatus from './Pages/PoStatus/PoStatus';
+import UserAccess from './Pages/UserAccess/UserAccess';
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/UserType" element={<UserType/>}></Route>
         <Route path="/NewUser" element={<NewUser/>}></Route>
         <Route path="/NewUser2" element={<NewUser2/>}></Route>
+        <Route path="/UserAccess" element={<UserAccess/>}></Route>
       </Routes>
 
     </>

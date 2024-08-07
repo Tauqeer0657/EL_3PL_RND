@@ -57,6 +57,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   backgroundSize: "140px auto",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
+  position: "sticky",
+  top: 0,
+  zIndex: 1,
 }));
 
 const Drawer = styled(MuiDrawer, {
@@ -135,38 +138,23 @@ export default function SideBar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {menuItems.filter(item => item.page_YN === "Y").map((item, index) => (
-            <div key={index}>
-              <ListItem
-                disablePadding
-                sx={{ display: "block" }}
-                onClick={() => navigate(item.pageLink)}
-              >
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    color: "#222b48",
-                    justifyContent: open ? "initial" : "center",
-                    px: 1.5,
-                    mt: 1,
-                    borderBottom: "1px solid #ccc",
-                    ...(location.pathname === item.pageLink && {
-                      background: "#222b48",
-                      color: "white",
-                    }),
-                    ":hover": {
-                      background: "#045e8477",
-                      color: "white",
-                    },
-                  }}
+        <Box sx={{ overflowY: "auto", height: "calc(100vh - 64px)" }}>
+          <List>
+            {menuItems.filter(item => item.page_YN === "Y").map((item, index) => (
+              <div key={index}>
+                <ListItem
+                  disablePadding
+                  sx={{ display: "block" }}
+                  onClick={() => navigate(item.pageLink)}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 1 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
                       color: "#222b48",
+                      justifyContent: open ? "initial" : "center",
+                      px: 1.5,
+                      mt: 1,
+                      borderBottom: "1px solid #ccc",
                       ...(location.pathname === item.pageLink && {
                         background: "#222b48",
                         color: "white",
@@ -177,78 +165,95 @@ export default function SideBar() {
                       },
                     }}
                   >
-                    {/* Optionally, you can add icons here */}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={
-                      <div
-                        style={{
-                          fontSize: "0.9rem",
-                          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                        }}
-                      >
-                        {item.pageName}
-                      </div>
-                    }
-                    sx={{
-                      opacity: open ? 1 : 0,
-                    }}
-                  />
-                  {item.submenu && (
-                    open ? 
-                    (submenuOpen[index] ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />) 
-                    : 
-                    (location.pathname === item.pageLink ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />)
-                  )}
-                </ListItemButton>
-              </ListItem>
-              {item.submenu && submenuOpen[index] && (
-                <List>
-                  {item.submenu.map((subItem, subIndex) => (
-                    <ListItem
-                      key={subIndex}
-                      disablePadding
-                      sx={{ display: "block", pl: 2 }}
-                      onClick={() => handleSubMenuClick(subItem.pageLink)}
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 1 : "auto",
+                        justifyContent: "center",
+                        color: "#222b48",
+                        ...(location.pathname === item.pageLink && {
+                          background: "#222b48",
+                          color: "white",
+                        }),
+                        ":hover": {
+                          background: "#045e8477",
+                          color: "white",
+                        },
+                      }}
                     >
-                      <ListItemButton
-                        sx={{
-                          minHeight: 48,
-                          color: "#222b48",
-                          justifyContent: "initial",
-                          px: 2,
-                          mt: 1,
-                          borderBottom: "1px solid #ccc",
-                          ...(location.pathname === subItem.pageLink && {
-                            background: "#222b48",
-                            color: "white",
-                          }),
-                          ":hover": {
-                            background: "#045e8477",
-                            color: "white",
-                          },
-                        }}
+                      {/* Optionally, you can add icons here */}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={
+                        <div
+                          style={{
+                            fontSize: "0.9rem",
+                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                          }}
+                        >
+                          {item.pageName}
+                        </div>
+                      }
+                      sx={{
+                        opacity: open ? 1 : 0,
+                      }}
+                    />
+                    {item.submenu && (
+                      open ? 
+                      (submenuOpen[index] ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />) 
+                      : 
+                      (location.pathname === item.pageLink ? <ExpandLessIcon onClick={() => handleToggleSubMenu(index)} /> : <ExpandMoreIcon onClick={() => handleToggleSubMenu(index)} />)
+                    )}
+                  </ListItemButton>
+                </ListItem>
+                {item.submenu && submenuOpen[index] && (
+                  <List>
+                    {item.submenu.map((subItem, subIndex) => (
+                      <ListItem
+                        key={subIndex}
+                        disablePadding
+                        sx={{ display: "block", pl: 2 }}
+                        onClick={() => handleSubMenuClick(subItem.pageLink)}
                       >
-                        <ListItemText
-                          primary={
-                            <div
-                              style={{
-                                fontSize: "0.75rem",
-                                fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                              }}
-                            >
-                              {subItem.pageName}
-                            </div>
-                          }
-                        />
-                      </ListItemButton>
-                    </ListItem>
-                  ))}
-                </List>
-              )}
-            </div>
-          ))}
-        </List>
+                        <ListItemButton
+                          sx={{
+                            minHeight: 48,
+                            color: "#222b48",
+                            justifyContent: "initial",
+                            px: 2,
+                            mt: 1,
+                            borderBottom: "1px solid #ccc",
+                            ...(location.pathname === subItem.pageLink && {
+                              background: "#222b48",
+                              color: "white",
+                            }),
+                            ":hover": {
+                              background: "#045e8477",
+                              color: "white",
+                            },
+                          }}
+                        >
+                          <ListItemText
+                            primary={
+                              <div
+                                style={{
+                                  fontSize: "0.75rem",
+                                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                                }}
+                              >
+                                {subItem.pageName}
+                              </div>
+                            }
+                          />
+                        </ListItemButton>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </div>
+            ))}
+          </List>
+        </Box>
       </Drawer>
     </Box>
   );
