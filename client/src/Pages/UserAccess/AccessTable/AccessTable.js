@@ -508,7 +508,7 @@ const AccessTable = ({ USER_CD }) => {
 
         if (USER_CD) {
           const userAccessResponse = await _getAll_WithoutToken(
-            `api/access/${USER_CD}`
+            `/api/access/getAccess/${USER_CD}`
           );
           const userAccessData = userAccessResponse.data;
           setUserAccessData(userAccessData);
